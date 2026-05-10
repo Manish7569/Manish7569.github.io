@@ -12,3 +12,30 @@ Personal portfolio for **Manish Reddy**, Senior GenAI / AI-ML Engineer with 10+ 
 ---
 
 ## 📁 Project Structure
+
+my-portfolio/
+├── index.html      ← HTML structure & content
+├── styles.css      ← All styling, animations, responsive design
+├── script.js       ← Scroll animations, nav highlighting, interactions
+└── README.md       ← This file
+
+---
+
+## 🛠 Tech Stack
+
+- **HTML5** — semantic structure
+- **CSS3** — custom properties, grid, flexbox, animations
+- **Vanilla JavaScript** — IntersectionObserver, smooth scroll, active nav
+- **Google Fonts** — Syne (headings) + DM Sans (body)
+- **GitHub Pages** — free hosting with automatic deployment
+
+---
+
+## 📬 Contact
+
+| | |
+|---|---|
+| 📧 Email | Manishreddy.ai@outlook.com |
+| 📞 Phone | +1 (669) 200-9659 |
+| 💼 LinkedIn | [linkedin.com/in/manish-reddy-t-645470180](https://www.linkedin.com/in/manish-reddy-t-645470180/) |
+| 💻 GitHub | [github.com/Manish7569](https://github.com/Manish7569) |
