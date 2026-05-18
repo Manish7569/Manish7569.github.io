@@ -21,6 +21,7 @@
   <a href="#hero" class="nav-logo">Manish<span>.</span></a>
 
   <ul class="nav-links">
+    <a href="#chatbot">AI Assistant</a>
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Work</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -704,5 +705,333 @@
 </footer>
 
 <script src="script.js"></script>
+  <!-- ============================================================
+     MANISH REDDY — AI PORTFOLIO CHATBOT SECTION
+     ============================================================ -->
+
+<!-- Chatbot Section -->
+<section id="chatbot" style="padding: 80px 0; background: #0a0a0a; border-top: 1px solid #1a1a2e;">
+  <div style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
+
+    <!-- Section Header -->
+    <div style="text-align: center; margin-bottom: 48px;">
+      <span style="font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #6366f1; font-weight: 600;">AI Portfolio Assistant</span>
+      <h2 style="font-size: 38px; font-weight: 700; color: #ffffff; margin: 12px 0 8px; line-height: 1.2;">Ask Anything About <span style="color: #6366f1;">Manish</span></h2>
+      <p style="color: #888; font-size: 15px; max-width: 520px; margin: 0 auto; line-height: 1.6;">Powered by AI — ask about his experience, projects, tech stack, or anything about his 10+ year career across 5 enterprise clients.</p>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div id="mr-chat-wrap" style="border: 1px solid #1e1e3a; border-radius: 16px; overflow: hidden; background: #0d0d1a; box-shadow: 0 0 60px rgba(99,102,241,0.08);">
+
+      <!-- Header -->
+      <div style="padding: 16px 22px; background: #0f0f20; border-bottom: 1px solid #1e1e3a; display: flex; align-items: center; gap: 14px;">
+        <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #4f46e5); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0;">MR</div>
+        <div style="flex: 1;">
+          <div style="font-size: 14px; font-weight: 600; color: #ffffff;">Manish Reddy — Portfolio Assistant</div>
+          <div style="font-size: 11px; color: #6366f1; margin-top: 2px;">Senior GenAI / AI-ML Engineer · 10+ years · Walmart · 5th 3rd Bank · L.A. Care</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <div style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e;"></div>
+          <span style="font-size: 11px; color: #22c55e;">Online</span>
+        </div>
+      </div>
+
+      <!-- Messages -->
+      <div id="mr-msgs" style="height: 420px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 16px; background: #0a0a16; scroll-behavior: smooth;">
+        <div style="display: flex; gap: 10px; align-items: flex-end; max-width: 85%;">
+          <div style="width: 30px; height: 30px; border-radius: 50%; background: #1e1e3a; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; color: #6366f1; flex-shrink: 0; border: 1px solid #2e2e5a;">MR</div>
+          <div style="background: #13132a; border: 1px solid #1e1e3a; border-radius: 4px 14px 14px 14px; padding: 12px 16px; font-size: 13px; color: #d1d5db; line-height: 1.65;">Hey there! I am Manish Reddy's AI portfolio assistant. I know everything about his 10+ year journey — from Hindustan Unilever all the way to building autonomous AI agents at Walmart. Ask me anything and I will give you a straight, honest answer!</div>
+        </div>
+      </div>
+
+      <!-- Quick chips -->
+      <div id="mr-chips" style="padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 7px; background: #0d0d1a; border-top: 1px solid #1e1e3a;">
+        <span class="mr-chip" onclick="mrAsk('Tell me about the Walmart project')">Walmart project</span>
+        <span class="mr-chip" onclick="mrAsk('What is his agentic AI experience')">Agentic AI</span>
+        <span class="mr-chip" onclick="mrAsk('Tell me about his RAG experience')">RAG pipelines</span>
+        <span class="mr-chip" onclick="mrAsk('What LLMs has he worked with')">LLMs used</span>
+        <span class="mr-chip" onclick="mrAsk('What GCP experience does he have')">GCP skills</span>
+        <span class="mr-chip" onclick="mrAsk('Tell me about his banking AI project')">Banking AI</span>
+        <span class="mr-chip" onclick="mrAsk('Why should we hire Manish')">Why hire him</span>
+        <span class="mr-chip" onclick="mrAsk('How do I contact Manish')">Contact</span>
+      </div>
+
+      <!-- Input -->
+      <div style="display: flex; gap: 10px; padding: 14px 20px; background: #0f0f20; border-top: 1px solid #1e1e3a; align-items: center;">
+        <input id="mr-inp"
+          placeholder="Ask anything about Manish Reddy..."
+          onkeydown="if(event.key==='Enter')mrSend()"
+          style="flex: 1; background: #1a1a2e; border: 1px solid #2e2e5a; border-radius: 10px; padding: 10px 14px; font-size: 13px; color: #e5e7eb; outline: none; font-family: inherit; height: 40px;"
+          onfocus="this.style.borderColor='#6366f1'"
+          onblur="this.style.borderColor='#2e2e5a'"
+        />
+        <button onclick="mrSend()" aria-label="Send message"
+          style="width: 42px; height: 42px; border-radius: 10px; border: none; background: linear-gradient(135deg, #6366f1, #4f46e5); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity .15s;"
+          onmouseover="this.style.opacity='.85'"
+          onmouseout="this.style.opacity='1'">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bottom note -->
+    <p style="text-align: center; margin-top: 16px; font-size: 11px; color: #444; letter-spacing: 0.3px;">
+      Want to connect directly?
+      <a href="tel:+16692009659" style="color: #6366f1; text-decoration: none;">+1(669) 200-9659</a> ·
+      <a href="mailto:Manishreddy.ai@outlook.com" style="color: #6366f1; text-decoration: none;">Manishreddy.ai@outlook.com</a>
+    </p>
+  </div>
+</section>
+
+<style>
+.mr-chip {
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: 1px solid #2e2e5a;
+  background: #13132a;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.mr-chip:hover {
+  background: #1e1e4a;
+  color: #a5b4fc;
+  border-color: #6366f1;
+}
+#mr-msgs::-webkit-scrollbar { width: 4px; }
+#mr-msgs::-webkit-scrollbar-track { background: transparent; }
+#mr-msgs::-webkit-scrollbar-thumb { background: #2e2e5a; border-radius: 2px; }
+</style>
+
+<script>
+(function() {
+
+const NON_TECH_PROFESSIONS = [
+  'is he a cop','is he a police','is he a soldier','is he a doctor','is he a nurse',
+  'is he a chef','is he a cook','is he a lawyer','is he a judge','is he a pilot',
+  'is he a driver','is he a farmer','is he a teacher','is he a professor',
+  'is he a singer','is he an actor','is he a musician','is he a dancer',
+  'is he a cricketer','is he a footballer','is he an athlete',
+  'was he a doctor','was he a nurse','was he a cop','was he a soldier',
+  'did he work as cop','did he work as police','did he work as nurse','did he work as doctor',
+  'did he worked as cop','did he worked as police','did he worked as nurse','did he worked as doctor',
+  'did he work as chef','did he work as lawyer','did he work as pilot','did he work as soldier',
+  'did he worked as chef','did he worked as lawyer','did he worked as pilot','did he worked as soldier',
+  'did he work as driver','did he work as teacher','did he work as singer','did he work as actor',
+  'did he worked as driver','did he worked as teacher','did he worked as singer','did he worked as actor',
+  'did he work as accountant','did he worked as accountant','did he work as therapist','did he worked as therapist'
+];
+
+const FUNNY_MAP = {
+  'doctor': `Ha! A doctor? The only things Manish diagnoses are underperforming ML models and misbehaving AI agents! He is a Senior AI/ML Engineer — 10+ years in enterprise AI. His work at L.A. Care helped real doctors make clinical decisions 30% faster, but he built the AI behind the stethoscope — not the stethoscope itself!`,
+  'nurse': `Ha! A nurse? Manish's idea of patient care is monitoring AI model health on Grafana dashboards at 2 AM! He is a Senior AI/ML Engineer — not a medical professional. His healthcare experience is building HIPAA-compliant data platforms, not clinical bedside work.`,
+  'cop': `Ha! A cop? The only law enforcement Manish does is making every deployment pass OPA policy-as-code checks before it goes live! GDPR, HIPAA, SOX — those are his regulations. Senior AI/ML Engineer, not a police officer.`,
+  'police': `Ha! Manish enforces policies alright — automated OPA/Conftest compliance policies on every CI/CD deployment! But as a police officer? Definitely not. Senior AI/ML Engineer with 10+ years in enterprise AI platforms.`,
+  'chef': `Ha! Manish in a kitchen? The only recipe he knows is: raw data + PySpark + LangGraph + Claude 3.5 = $485M business impact! He is a Senior AI/ML Engineer. Though his chai-making skills are apparently legendary in the office!`,
+  'singer': `Haha! A singer? Well — Manish is absolutely a bathroom singer and his colleagues can confirm that! But professionally? The only tracks he drops are data pipelines and LangGraph agent workflows. Senior AI/ML Engineer — not a recording artist!`,
+  'musician': `Ha! Manish's instrument of choice is Python, not a guitar! The closest thing to music in his world is when a perfectly tuned ML model hits 96% accuracy on the first run. Senior AI/ML Engineer through and through.`,
+  'dancer': `Haha — that would be quite the career pivot! Manish's moves are all in the code editor, orchestrating AI agents not dance steps. Senior AI/ML Engineer, full stop.`,
+  'actor': `Ha! The only performance Manish delivers is 30% operational cost reduction at Walmart! Senior AI/ML Engineer — though he does give a genuinely impressive interview!`,
+  'pilot': `Haha! Manish does fly — but only through cloud platforms. GCP, AWS, Azure — that is his airspace. He navigates multi-cloud architectures like a seasoned pilot, but as an actual pilot? No. Senior AI/ML Engineer.`,
+  'driver': `Ha! The only driving Manish does is driving AI strategy and enterprise architecture decisions! Senior AI/ML Engineer — not behind a wheel professionally.`,
+  'lawyer': `Ha! Manish knows compliance law well — GDPR, HIPAA, SOX, NIST AI RMF — but as a practising lawyer? No. He is a Senior AI/ML Engineer who makes sure AI systems are legally and ethically deployable.`,
+  'soldier': `Ha! Manish has fought many battles — debugging production agents at 2 AM, scaling for Black Friday traffic, keeping LLMs from hallucinating in regulated environments! But as a military soldier? No. Senior AI/ML Engineer.`,
+  'cricketer': `Oh nice question! Manish does enjoy cricket — Sunday matches with friends are his thing. But professionally? Senior AI/ML Engineer at Walmart, not an IPL player. His professional boundaries are in enterprise AI systems, not cricket boundaries!`,
+  'footballer': `Ha! Manish enjoys a good football match on weekends — hobby, not profession. Full-time he is a Senior AI/ML Engineer at Walmart. He scores goals in operational cost reduction, not on the pitch!`,
+  'athlete': `Ha! Manish is sharp, focused, and always delivering — but as a professional athlete? No. Senior AI/ML Engineer with 10+ years in enterprise AI.`,
+  'teacher': `Interesting! Manish does teach — his technical documentation and runbooks have onboarded entire engineering teams. But as a professional teacher? No. Senior AI/ML Engineer. Though his mentoring of junior engineers has been excellent throughout his career.`
+};
+
+const POC_TECH = {
+  'mulesoft': `Manish has not worked with MuleSoft as a primary tool — his integration layer uses Python Flask microservices, Apache Kafka, and cloud-native event streaming on GCP and AWS. At enterprise clients like Walmart, MuleSoft was part of the broader middleware landscape and he has foundational awareness of how it fits into enterprise API integration architectures. His depth is in cloud-native Python microservices and event-driven architectures rather than iPaaS platforms like MuleSoft.`,
+  'salesforce': `Salesforce is not in Manish's primary tech stack — his focus is on AI/ML engineering, data platforms, and cloud infrastructure rather than CRM systems. At enterprise clients, Salesforce existed in the broader business landscape and he has worked alongside teams where Salesforce data fed into data lake pipelines. Basic familiarity with Salesforce as a data source in enterprise ETL contexts. His depth is in BigQuery, Snowflake, Redshift, PySpark — the AI and data engineering layer.`,
+  'servicenow': `ServiceNow is not part of Manish's core stack — it sits in the ITSM application layer. At Walmart-scale enterprises it was used for IT service management in the broader org and he has awareness of how it integrates. His expertise is in the AI/ML engineering and cloud data platform space.`,
+  'tableau': `Yes — Manish used Tableau early in his career at Hindustan Unilever for regional sales reporting and executive dashboards. In later roles he moved to programmatic solutions — Streamlit dashboards, Grafana for observability, and BigQuery Studio — as these integrated better with his AI platform work. Foundational Tableau knowledge is there from his early career.`,
+  'power bi': `Power BI is not in Manish's primary stack. His analytics work uses BigQuery Studio, Grafana for operational dashboards, and Streamlit for AI-powered interfaces. He has basic awareness of Power BI from enterprise environments where it coexisted with his data platforms.`,
+  'powerbi': `Power BI is not in Manish's primary stack. His analytics and visualization work has been through BigQuery Studio, Grafana, and Streamlit. He has basic awareness from enterprise environments where it coexisted alongside his data platforms.`,
+  'informatica': `Informatica is not in Manish's active toolkit. His ETL work uses custom PySpark on Dataproc and EMR, Apache Kafka for streaming, and cloud-native services like GCP Dataflow and AWS Glue. At enterprise clients, Informatica was part of the legacy data landscape he migrated away from. He understands its role in traditional MDM architectures.`,
+  'talend': `Talend is not in Manish's primary stack — he builds custom pipelines using PySpark, Kafka, and cloud-native ETL services rather than GUI-based ETL tools. Awareness from enterprise contexts where it was part of existing infrastructure. His depth is in programmatic pipeline development at scale.`,
+  'boomi': `Dell Boomi is not something Manish has worked with directly. His integration patterns use Python microservices and Kafka — not iPaaS platforms like Boomi. Basic awareness from enterprise architecture contexts but not hands-on expertise.`,
+  'autocad': `AutoCAD is a mechanical and civil design tool — completely outside Manish's domain. His entire 10+ year career has been in software engineering, AI/ML, and cloud data platforms. His drafting tool of choice is a Python IDE and a Terraform config file!`,
+  'dotnet': `.NET is not Manish's primary development stack — he is a Python-first engineer. At client engagements where existing backend systems were built on .NET, he built Python microservices that integrated with those .NET API layers for data exchange. Practical integration-level knowledge, not deep .NET development expertise.`,
+  '.net': `.NET is not Manish's primary stack — he is a Python-first engineer. He has built Python microservices that integrated with .NET backend APIs at client engagements. Practical exposure at the integration level, not deep .NET development.`,
+  'react': `React is not Manish's primary domain — he is a backend AI/ML and data engineering specialist. For UI he built Streamlit dashboards at Walmart for internal supply chain teams. He has worked alongside React-based frontend teams in client projects where analytics interfaces were React-powered. Collaboration awareness, not deep React development.`,
+  'angular': `Angular is not in Manish's primary stack. His frontend work has been Streamlit dashboards for internal AI-powered interfaces. He understands the integration pattern from environments where Angular frontends consumed the Flask and FastAPI APIs he built.`,
+  'java': `Manish has platform-level Java experience. At Hindustan Unilever he worked with Java-based Hadoop and MapReduce components. In later roles he worked with Java-based Kafka components and has read and modified Java code in pipeline integrations. His expert-level primary language is Python. Java is foundational awareness from real project exposure.`,
+  'scala': `Manish has worked with Scala in Spark contexts. At 5th 3rd Bank and Cox Automotive he worked with Scala Spark codebases — reading, understanding, and modifying existing jobs alongside PySpark work. Not a Scala developer by primary skill but has practical exposure from real Spark environments.`,
+  'spring boot': `Spring Boot is not Manish's primary framework — he builds Python-based microservices using Flask and FastAPI. At enterprise clients where Spring Boot backends existed, he built Python services that interfaced with those REST APIs. Integration-level awareness rather than Spring Boot development expertise.`,
+  'dbt': `dbt is not in Manish's active stack — his data transformation work uses PySpark on Dataproc and EMR, BigQuery SQL, and custom Python pipelines. He is aware of dbt's role in the modern data stack and its fit for analytics engineering. Not hands-on but architecturally familiar.`,
+  'workday': `Workday sits in the HR and finance application layer rather than the AI and data engineering space where Manish works. He has awareness of Workday as an enterprise system from client environments but no hands-on technical experience with it.`
+};
+
+const KB = [
+  { keys:['walmart','supply chain','retail','current','rogers','main project','biggest','recent work','replenishment'], ans:`Manish has been at Walmart since June 2023 as a Senior GenAI/ML Engineer — and this is his most impressive project to date. He built their Enterprise-scale Agentic AI Decision Intelligence Platform serving 4,000+ locations and millions of weekly transactions across retail supply chain and healthcare claims. He built stateful Super Agents using LangGraph and Amazon Bedrock Claude 3.5 for retail reasoning — achieving a 30% reduction in operational costs. The platform unified six previously fragmented systems — Oracle Retail, Manhattan WMS, JDA Blue Yonder, Adobe Analytics, and SAP — into a single BigQuery lakehouse. Decisions that used to take 3 to 5 days now happen in under 2 minutes. Net savings approximately $485M annually — the platform paid for itself in 13 days.\n\n💬 Want to know more? Call Manish directly at +1(669) 200-9659 or email Manishreddy.ai@outlook.com` },
+  { keys:['agent','agentic','langgraph','autogen','super agent','multi agent','autonomous','mcp','stateful'], ans:`Agentic AI is Manish's deepest and strongest domain. At Walmart he built stateful Super Agents using LangGraph — modular domain agents for Demand, Inventory, Risk, Claims, and Compliance collaborating through stateful execution graphs with full reasoning traceability. He built adaptive agent routing that dynamically selects SQL agents, retrieval agents, or policy agents based on task classification. Think of LangGraph as the conductor of an orchestra — each specialist agent a musician, LangGraph makes sure they play in the right order. He used AutoGen for multi-agent coordination and MCP as the standardized tool interface between agents and external systems. At 5th 3rd Bank he built a graph-based NLP intelligence assistant using Python and Neo4j for fraud entity analysis.` },
+  { keys:['rag','retrieval','vector','embedding','pinecone','milvus','faiss','semantic','graph rag','hybrid search','contextual'], ans:`RAG pipelines are something Manish has built completely end to end. At Walmart he designed a Graph-Enhanced RAG architecture combining vector similarity search, metadata filtering, and citation grounding for context-aware reasoning. Vendor contracts and compliance documents were chunked, embedded via Vertex AI, stored in Pinecone and Milvus, and retrieved by FAISS ANN search in sub-second latency. He applied Chain-of-Thought and ReAct prompting with deterministic schema enforcement to eliminate hallucination in production. At Cox Automotive he first implemented FAISS-based ANN search supporting 2M+ monthly users — 18% engagement increase. Same pattern, later scaled massively at Walmart.` },
+  { keys:['llm','claude','gpt','bedrock','openai','llama','mistral','language model','foundation model','prompt engineer'], ans:`Manish has hands-on production LLM experience across real enterprise deployments. At Walmart he chose Amazon Bedrock Claude 3.5 for retail reasoning — specifically for accuracy on complex multi-step decisions and reliable structured JSON output. He chose Azure OpenAI GPT-4o for healthcare workflows based on latency benchmarks and enterprise compliance requirements. He also has experience with Llama 3, Mistral, and GPT. His prompt engineering goes deep — Chain-of-Thought, ReAct, context window optimization, and deterministic schema enforcement. He does not just call LLMs — he architects how they reason and behave in production enterprise systems.` },
+  { keys:['gcp','google cloud','bigquery','vertex ai','dataproc','cloud dlp','cortex','bigquery ml','gke','pub/sub'], ans:`GCP is one of Manish's strongest cloud platforms. At Walmart — Vertex AI for embeddings and LLM serving, BigQuery as the core analytical warehouse, Cloud DLP for real-time PII masking, GKE for container orchestration, BigQuery ML for in-warehouse inference. At 5th 3rd Bank — Vertex AI for XGBoost fraud detection. At L.A. Care — GCP BigQuery and Cloud DLP for HIPAA-compliant PHI masking. At Hindustan Unilever — early GCP migration building ETL pipelines into BigQuery. He also evaluated SAP Cortex Framework at Walmart — Google's pre-built SAP-to-GCP bridge — and made the call to build custom pipelines when Cortex could not meet sub-200ms latency at agent scale.` },
+  { keys:['aws','amazon','bedrock','sagemaker','emr','redshift','eks','s3','msk','kinesis'], ans:`Deep AWS experience across four clients. At Walmart — Amazon Bedrock Claude 3.5 as production LLM, Amazon EKS, Amazon Redshift, Amazon ECR, and AWS EMR PySpark. At 5th 3rd Bank — AWS MSK Managed Kafka, AWS EMR for 15TB+ PySpark across 600+ banking centers, Databricks on AWS, and SageMaker. At Cox Automotive — S3, EMR, EC2, SageMaker, and CloudWatch. Terraform IaC provisions everything with IAM and RBAC policies consistently across environments.` },
+  { keys:['azure','databricks','synapse','azure ml','aks','azure openai','data factory','azure monitor'], ans:`Strong Azure experience from Walmart and L.A. Care. At Walmart — Azure OpenAI GPT-4o for healthcare, Azure Databricks PySpark for transformation, Azure Synapse Analytics, ADLS Gen2, Azure AI Search for hybrid vector filtering, AKS, and Azure Monitor. At L.A. Care — full HIPAA-compliant clinical platform on Azure Databricks, Azure ML, Azure Data Factory for HL7 FHIR R4 ingestion, AKS for clinical inference, and Azure RBAC with encryption for PHI governance.` },
+  { keys:['sap','cortex','sap integration','sap data','erp'], ans:`Manish has direct SAP and Cortex Framework experience from Walmart. The POC layered AI on SAP using Google's Cortex Framework to bridge SAP data into BigQuery and Vertex AI. Two things killed it at scale — SAP's API layer gave 8 to 12 second response times per agent data call, and licensing costs at 14,000+ daily agent runs exploded. He made the architectural call to decouple from SAP — migrating vendor master data, procurement history, and contract records into BigQuery once. Agent data access dropped from 12 seconds to under 200ms. That single decision made the 2-minute autonomous procurement cycle possible.` },
+  { keys:['bank','fraud','5th third','fifth third','evansville','fraud detection','financial ai','xgboost'], ans:`At 5th 3rd Bank (Aug 2021 to May 2023) Manish built a production-grade fraud prediction platform processing millions of daily financial transactions. XGBoost on Google Vertex AI improved fraud detection accuracy by 12%. Kafka on AWS MSK and Snowpipe for ingestion, PySpark on AWS EMR for 15TB+ across 600+ banking centers, and Databricks plus Snowflake as the multi-cloud lakehouse. SHAP explainability reduced manual risk review time by 25% — aligned with SR 11-7 and BCBS 239. He also built an NLP risk intelligence assistant using Python and Neo4j enabling fraud analysts to query financial entity relationships through natural language.` },
+  { keys:['healthcare','hipaa','lacare','l.a care','clinical','phi','fhir','claims'], ans:`At L.A. Care California (Apr 2019 to Jul 2021) Manish worked as a Python Developer and Data Scientist — this was earlier in his career, before his deep Gen AI focus. Solid data science and data engineering work — Azure Databricks PySpark for multi-terabyte claims and eligibility datasets, Scikit-learn and XGBoost on Azure ML for patient risk stratification using ICD codes and medication adherence signals, and GCP Cloud DLP for automated PHI masking. Reduced manual clinical review effort by 30%. This built his healthcare domain knowledge and HIPAA compliance expertise that he carried into Walmart's healthcare claims workflows.` },
+  { keys:['cox','automotive','vehicle','auction','car','pricing','valuation'], ans:`At Cox Automotive in Atlanta (Oct 2016 to Mar 2019) Manish worked as a Data Analyst and Data Scientist. He built an automated vehicle valuation platform using Python and XGBoost — 15% improvement in auction price prediction. Snowflake plus AWS S3 for 5TB+ vehicle datasets, PySpark on AWS EMR for ETL from JSON and REST APIs, BERT-based transformers for customer sentiment with 12% accuracy improvement, and FAISS-based ANN search on AWS EC2 for real-time recommendations supporting 2M+ monthly users — 18% engagement increase. That FAISS recommendation pattern he later scaled massively at Walmart.` },
+  { keys:['unilever','hindustan','india','hadoop','hive','big data','early career','first job','bangalore'], ans:`Manish started his career at Hindustan Unilever in Bangalore India (2014 to 2016) as a Big Data Engineer. Hadoop and Hive ingestion pipelines for massive regional sales datasets, Python web crawlers using SOAP Web Services for competitor pricing intelligence, HiveQL and MapReduce batch transformation workflows, PL/SQL stored procedures reducing query times by 40%, and an early GCP migration building ETL pipelines into BigQuery. A 10+ year journey from Hive queries in Bangalore to LangGraph Super Agents at Walmart.` },
+  { keys:['python','flask','fastapi','streamlit','microservice','api','rest'], ans:`Python is Manish's expert-level primary language — 10+ years of production Python across every role. At Walmart he built Python Flask microservices exposing AI agents as REST APIs on GKE and EKS, and a Streamlit interface for internal supply chain teams. He used FastAPI for ML model serving and built OpenAPI/Swagger documented APIs for enterprise deployment. For LLM serving infrastructure — vLLM, TGI, and TorchServe.` },
+  { keys:['mlops','llmops','mlflow','cicd','github actions','jenkins','terraform','docker','kubernetes'], ans:`Manish has strong end-to-end MLOps and LLMOps experience — he builds models and keeps them healthy in production. At Walmart — CI/CD with GitHub Actions and Jenkins, container security scans, Docker builds, multi-environment Kubernetes deployments on EKS and AKS, Terraform IaC for clusters, networking, IAM/RBAC, and secrets management. At 5th 3rd Bank — MLflow on Databricks for experiment tracking and versioning alongside Vertex AI Pipelines on GCP.` },
+  { keys:['prometheus','grafana','langsmith','monitor','observ','drift','latency','metric'], ans:`Manish built comprehensive observability stacks across all clients. At Walmart — Prometheus, LangSmith, and Azure Monitor tracking latency, token utilization, retrieval precision, hallucination risk, and SLA adherence. LangSmith traced every agent step so when an agent made a wrong decision, he could pinpoint exactly where reasoning broke down — right down to the specific prompt and token count. At 5th 3rd Bank — AWS CloudWatch, GCP Cloud Monitoring, and Prometheus for cross-cloud model drift tracking.` },
+  { keys:['pyspark','spark','emr','databricks','kafka','etl','pipeline','transform','ingestion'], ans:`Data engineering is the foundation of everything Manish builds. At Walmart — high-throughput Kafka ingestion pipelines at 99.9% reliability, PySpark on AWS EMR and Azure Databricks. At 5th 3rd Bank — 15TB+ transactional datasets using PySpark on AWS EMR across 600+ banking centers. At Cox Automotive — PySpark on AWS EMR for vehicle inventory ETL. His pipeline work spans Kafka, Kinesis, Spark Structured Streaming, Snowpipe, Delta Lake across all three cloud platforms.` },
+  { keys:['snowflake','sql','postgresql','postgres','database','nosql','mongodb','neo4j','mysql'], ans:`Manish has broad database experience across relational, NoSQL, and graph systems. Snowflake is consistent across Walmart, 5th 3rd Bank, and Cox Automotive. He uses PostgreSQL and SQL extensively — PL/SQL, complex joins, query optimization, BigQuery SQL at petabyte scale. At 5th 3rd Bank he built Neo4j graph traversals for fraud entity relationship queries. Also worked with MySQL, SQL Server, Teradata, DynamoDB, and Cosmos DB.` },
+  { keys:['compliance','gdpr','hipaa','sox','governance','security','rbac','opa','nist','bcbs'], ans:`Compliance is a genuine strength — not bolted on at the end. At Walmart — RBAC, encryption at rest and in transit, OPA and Azure Policy enforcement, audit logging, scoped LLM context injection for PII and PHI workflows. At L.A. Care — fully HIPAA-compliant platform with GCP Cloud DLP for PHI masking baked into ingestion. At 5th 3rd Bank — SR 11-7, BCBS 239, SOX ITGC, CCAR audit standards using Collibra and Apache Atlas for data lineage. NIST AI RMF 1.0, CCPA, ONC, and Model Signing frameworks all part of his governance toolkit.` },
+  { keys:['result','impact','achievement','outcome','kpi','saving','roi','accomplish','deliver','number'], ans:`Manish's work consistently delivers measurable business outcomes. Walmart — 30% reduction in operational costs, decisions from 3-5 days to under 2 minutes, 18% engagement lift across 2M+ monthly users, ~$485M net annual savings. 5th 3rd Bank — 12% improvement in fraud detection accuracy, 25% reduction in manual risk review time. L.A. Care — 30% reduction in manual clinical review effort, 35% reduction in model refinement cycles. Cox Automotive — 15% improvement in auction price prediction, 18% engagement increase. Every project tied to real business outcomes.` },
+  { keys:['experience','years','background','summary','who is','about manish','introduce','overview'], ans:`Manish Reddy is a Senior GenAI/AI-ML Engineer with 10+ years of experience building production-grade AI systems at enterprise scale. His journey — Big Data Engineer at Hindustan Unilever in Bangalore 2014, Data Scientist at Cox Automotive in Atlanta 2016, AI/ML Engineer at 5th 3rd Bank 2021, Python Developer and Data Scientist at L.A. Care 2019, and now Senior GenAI/ML Engineer at Walmart since 2023. Industries: Retail, Banking, Healthcare, Automotive, FMCG. Full AI stack expertise — data ingestion and PySpark transformations all the way to autonomous Agentic AI Super Agents at enterprise scale.` },
+  { keys:['skill','tech stack','technology','tools','what does he know','expertise'], ans:`Manish's core expertise covers the full modern AI engineering stack. Agentic AI — LangGraph, AutoGen, MCP. RAG — FAISS, Pinecone, Milvus, Azure AI Search. LLMs — Claude 3.5, GPT-4o, Llama 3, Mistral. GCP — Vertex AI, BigQuery, Dataproc, Cloud DLP, GKE. AWS — Bedrock, SageMaker, EMR, EKS, Redshift. Azure — Databricks, OpenAI, ML, AKS, Synapse. Python Expert — Flask, FastAPI, Streamlit. PySpark and Spark Streaming. MLOps — MLflow, Kubeflow, Airflow, GitHub Actions, Jenkins, Terraform. ML and DL — XGBoost, LightGBM, BERT, TensorFlow, PyTorch. Databases — PostgreSQL, Neo4j, MongoDB, Snowflake. Compliance — HIPAA, GDPR, SOX, NIST AI RMF.` },
+  { keys:['weakness','limitation','gap','not good','struggle'], ans:`Every strong engineer has honest growth areas. Manish's depth is strongest on backend AI engineering, cloud platforms, and data architecture. Deep frontend development — React, Angular — is not his primary domain, though he builds functional Streamlit dashboards and has worked alongside frontend teams. Some enterprise tools like MuleSoft or Salesforce sit outside his core stack with baseline awareness from enterprise environments. Gen AI moves extraordinarily fast — staying current requires constant learning, which Manish actively does. But across AI/ML engineering, Agentic AI, RAG, and multi-cloud data platforms? He is genuinely one of the strongest profiles in the market right now.` },
+  { keys:['why hire','should we hire','recommend','why manish','why choose','best candidate'], ans:`Here is why Manish stands out. He does not just know the technology — he has delivered it at scale very few engineers have experienced. 100M+ weekly transactions at Walmart. 15TB+ weekly data. 4,000+ locations. ~$485M net annual savings from a platform he helped architect. Full AI stack — Kafka ingestion through to autonomous AI agents making procurement decisions in under 2 minutes. Three cloud platforms. Three regulated industries. Seniority to own architecture decisions, not just implement them.\n\n💬 Want to talk directly? +1(669) 200-9659 or Manishreddy.ai@outlook.com` },
+  { keys:['contact','email','phone','linkedin','reach','hire','connect','get in touch'], ans:`Manish is open to the right conversations!\n\n📞 Phone — +1(669) 200-9659\n📧 Email — Manishreddy.ai@outlook.com\n💼 LinkedIn — linkedin.com/in/manish-reddy-t-645470180\n\nHe is currently at Walmart but genuinely open to discussing exciting AI/ML opportunities. Feel free to reach out directly!` },
+  { keys:['salary','pay','compensation','location','visa','personal'], ans:`Those details are best discussed directly with Manish — they are personal and conversation-specific.\n\n📞 +1(669) 200-9659\n📧 Manishreddy.ai@outlook.com\n\nHappy to tell you more about his technical experience in the meantime!` }
+];
+
+let mrDrillCount = 0;
+
+function mrIsProfession(ql) {
+  return NON_TECH_PROFESSIONS.some(p => ql.includes(p));
+}
+
+function mrGetFunny(ql) {
+  for (const [k, v] of Object.entries(FUNNY_MAP)) {
+    if (ql.includes(k)) return v;
+  }
+  return `Ha — that is definitely not Manish's world! His entire 10+ year career has been in software engineering, AI/ML, and cloud data platforms. Want to know what he actually does?`;
+}
+
+function mrIsPOC(ql) {
+  return Object.keys(POC_TECH).find(k => ql.includes(k));
+}
+
+function mrFindKB(ql) {
+  let best = null, bestScore = 0;
+  for (const e of KB) {
+    let s = 0;
+    for (const k of e.keys) { if (ql.includes(k)) s++; }
+    if (s > bestScore) { bestScore = s; best = e; }
+  }
+  return (best && bestScore > 0) ? best.ans : null;
+}
+
+function mrFindAnswer(q) {
+  const ql = q.toLowerCase().trim();
+  mrDrillCount++;
+
+  if (ql.includes('hello') || ql === 'hi' || ql.includes('hey') || ql.includes('good morning') || ql.includes('good evening')) {
+    return `Hey! Great to connect. I am Manish Reddy's portfolio assistant — happy to tell you anything about his 10+ years across Walmart, 5th 3rd Bank, L.A. Care, Cox Automotive, and Hindustan Unilever. What would you like to know?`;
+  }
+  if (ql.includes('thank') || ql.includes('appreciate') || ql.includes('helpful') || ql.includes('great answer')) {
+    return `You are very welcome! It is always a pleasure talking about Manish's work. Anything else you would like to explore? Or feel free to reach him directly at +1(669) 200-9659 or Manishreddy.ai@outlook.com`;
+  }
+  if (mrIsProfession(ql)) return mrGetFunny(ql);
+  const pocKey = mrIsPOC(ql);
+  if (pocKey) return POC_TECH[pocKey];
+  if (ql.includes('autocad') || ql.includes('solidworks') || ql.includes('catia')) {
+    return `AutoCAD and similar tools are for mechanical and civil design — completely outside Manish's domain. His entire 10+ year career has been in software engineering, AI/ML, and data platforms. His drafting tool of choice is a Python IDE and a Terraform config file!`;
+  }
+  if (ql.includes('warehouse') && (ql.includes('work') || ql.includes('job'))) {
+    return `If you mean data warehouse — absolutely yes! Manish has deep experience with BigQuery, Snowflake, Amazon Redshift, and Azure Synapse Analytics. If you mean a physical warehouse with forklifts? Ha — that is not his world at all. He is a Senior AI/ML Engineer!`;
+  }
+  if (ql.includes('civil') && !ql.includes('civilian')) {
+    return `Civil engineering — structural design, construction, roads — is completely outside Manish's domain. His degree is in Computer Science and his entire career has been in AI/ML, software engineering, and cloud data platforms.`;
+  }
+  const kbAns = mrFindKB(ql);
+  if (kbAns) {
+    if (mrDrillCount >= 4 && !kbAns.includes('📞')) {
+      return kbAns + `\n\n💬 For more detail or to connect directly — call Manish at +1(669) 200-9659 or email Manishreddy.ai@outlook.com`;
+    }
+    return kbAns;
+  }
+  if (mrDrillCount >= 3) {
+    return `That is a great question — for something this specific, the best way to get a precise answer is to connect with Manish directly.\n\n📞 +1(669) 200-9659\n📧 Manishreddy.ai@outlook.com\n💼 linkedin.com/in/manish-reddy-t-645470180`;
+  }
+  return `Interesting question about Manish! Could you be slightly more specific so I can give you the most accurate answer? For example — a particular client project, a technology like LangGraph or RAG, a domain like Agentic AI or fraud detection, or his overall background and business impact.`;
+}
+
+function mrScrollBottom() {
+  const m = document.getElementById('mr-msgs');
+  if (m) m.scrollTop = m.scrollHeight;
+}
+
+function mrAddMsg(text, role) {
+  const msgs = document.getElementById('mr-msgs');
+  if (!msgs) return;
+  const w = document.createElement('div');
+  w.style.cssText = `display:flex;gap:10px;align-items:flex-end;max-width:88%;${role==='user'?'align-self:flex-end;flex-direction:row-reverse;margin-left:auto;':''}`;
+  const av = document.createElement('div');
+  av.style.cssText = `width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;${role==='bot'?'background:#1e1e3a;color:#6366f1;border:1px solid #2e2e5a;':'background:#1e3a1e;color:#22c55e;border:1px solid #1e5a1e;'}`;
+  av.textContent = role === 'bot' ? 'MR' : 'You';
+  const b = document.createElement('div');
+  b.style.cssText = `padding:12px 16px;border-radius:${role==='bot'?'4px 14px 14px 14px':'14px 4px 14px 14px'};font-size:13px;line-height:1.65;white-space:pre-wrap;${role==='bot'?'background:#13132a;border:1px solid #1e1e3a;color:#d1d5db;':'background:#1e3a1e;border:1px solid #1e5a1e;color:#d1fae5;'}`;
+  b.textContent = text;
+  w.appendChild(av); w.appendChild(b);
+  msgs.appendChild(w);
+  mrScrollBottom();
+}
+
+function mrShowTyping() {
+  const msgs = document.getElementById('mr-msgs');
+  if (!msgs) return;
+  const w = document.createElement('div');
+  w.id = 'mr-typ';
+  w.style.cssText = 'display:flex;gap:10px;align-items:flex-end;max-width:88%;';
+  const av = document.createElement('div');
+  av.style.cssText = 'width:30px;height:30px;border-radius:50%;background:#1e1e3a;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#6366f1;flex-shrink:0;border:1px solid #2e2e5a;';
+  av.textContent = 'MR';
+  const b = document.createElement('div');
+  b.style.cssText = 'background:#13132a;border:1px solid #1e1e3a;border-radius:4px 14px 14px 14px;padding:12px 16px;display:flex;gap:5px;align-items:center;';
+  b.innerHTML = '<span style="width:6px;height:6px;border-radius:50%;background:#6366f1;animation:mrB 1.2s infinite;display:inline-block;"></span><span style="width:6px;height:6px;border-radius:50%;background:#6366f1;animation:mrB 1.2s infinite .2s;display:inline-block;"></span><span style="width:6px;height:6px;border-radius:50%;background:#6366f1;animation:mrB 1.2s infinite .4s;display:inline-block;"></span>';
+  w.appendChild(av); w.appendChild(b);
+  msgs.appendChild(w);
+  mrScrollBottom();
+  if (!document.getElementById('mr-anim')) {
+    const s = document.createElement('style');
+    s.id = 'mr-anim';
+    s.textContent = '@keyframes mrB{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}';
+    document.head.appendChild(s);
+  }
+}
+
+function mrRemoveTyping() {
+  const t = document.getElementById('mr-typ');
+  if (t) t.remove();
+}
+
+function mrAsk(q) {
+  const inp = document.getElementById('mr-inp');
+  if (inp) inp.value = q;
+  mrSend();
+}
+
+function mrSend() {
+  const inp = document.getElementById('mr-inp');
+  if (!inp) return;
+  const text = inp.value.trim();
+  if (!text) return;
+  inp.value = '';
+  mrAddMsg(text, 'user');
+  mrShowTyping();
+  setTimeout(() => {
+    mrRemoveTyping();
+    mrAddMsg(mrFindAnswer(text), 'bot');
+  }, 700 + Math.random() * 500);
+}
+
+window.mrSend = mrSend;
+window.mrAsk = mrAsk;
+
+})();
+</script>
+<!-- ============================================================
+     END CHATBOT SECTION
+     ============================================================ -->
 </body>
 </html>
